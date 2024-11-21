@@ -39,7 +39,7 @@ HDR-Image-Processing
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/ChillaleNaveen/Assignment3.git
+   git clone "https://github.com/dattaaaaa/PixelFusion_Emmetra"
    cd Assignment3
    
 2. Install the required Python dependencies:
