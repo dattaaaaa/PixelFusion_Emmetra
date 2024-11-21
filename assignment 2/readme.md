@@ -47,13 +47,6 @@ This project implements an advanced Image Signal Processing (ISP) pipeline with 
   - Streamlit
   - Rich
 
-## Installation
-```bash
-git clone https://github.com/bharshavardhanreddy924/assign2.git
-cd assign2
-pip install -r requirements.txt
-```
-
 ## Usage
 ### Streamlit Web Application
 ```bash
