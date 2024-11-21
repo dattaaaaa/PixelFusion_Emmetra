@@ -46,7 +46,7 @@ HDR-Image-Processing
     ```bash
    pip install -r requirements.txt
   
-3. #Run the Streamlit application:
+3. Run the Streamlit application:
    ```bash
     streamlit run src/hdr_processing.py
 
