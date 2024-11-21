@@ -41,6 +41,12 @@ HDR-Image-Processing
    ```bash
    git clone https://github.com/ChillaleNaveen/Assignment3.git
    cd Assignment3
-2. pip install -r requirements.txt #Install the required Python dependencies.
-3. streamlit run src/hdr_processing.py #Run the Streamlit application.
+   
+2. Install the required Python dependencies:
+    ```bash
+   pip install -r requirements.txt
+  
+3. #Run the Streamlit application:
+   ```bash
+    streamlit run src/hdr_processing.py
 
