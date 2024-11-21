@@ -1,0 +1,4 @@
+streamlit==1.25.0  # For creating the interactive UI
+opencv-python-headless==4.10.0  # OpenCV for image processing
+numpy==1.25.2  # For numerical operations
+Pillow==10.0.1  # For image handling
