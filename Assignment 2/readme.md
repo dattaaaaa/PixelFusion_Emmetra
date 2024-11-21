@@ -1,92 +1,108 @@
 # Advanced Image Signal Processing (ISP) Pipeline
 
-## Overview
-This project implements an advanced Image Signal Processing (ISP) pipeline with comprehensive image enhancement techniques, focusing on denoising, sharpening, and quality assessment for RAW images.
+## Project Overview
+This project implements an advanced Image Signal Processing (ISP) pipeline focusing on sophisticated image enhancement techniques, specifically targeting denoising, sharpening, and comprehensive quality assessment for RAW images.
 
-## Assignment Details
-### Assignment 2 Objectives
-- Implement advanced denoising and sharpness techniques
-- Compare traditional and AI-based image processing methods
-- Compute comprehensive image quality metrics
+## Deep Learning Model Training
 
-## Features
+### Dataset
+- **Name**: Smartphone Image Denoising Dataset (SIDD)
+- **Training Configuration**:
+  - Epochs: 3
+  - Batch Size: 16
+  - Learning Rate: 0.001
 
-### Image Processing Techniques
-1. **Demosaicing**
-   - Edge-aware interpolation for GRBG Bayer pattern
-   - Converts 12-bit RAW to RGB
+### Custom Denoising CNN Architecture
+- 3-channel input
+- 17 convolutional layers
+- Base feature count: 64
+- Utilizes BatchNorm and ReLU activations
+- Noise estimation and subtraction approach
 
-2. **White Balance**
-   - Gray world algorithm to remove color cast
+## Key Components
 
-3. **Gamma Correction**
-   - sRGB gamma transformation
-   - Converts 12-bit to 8-bit image
+### Image Processing Pipeline
+- **Demosaicing**: Edge-aware GRBG Bayer pattern conversion
+- **White Balance**: Gray world algorithm 
+- **Gamma Correction**: 12-bit to 8-bit transformation
+- **Denoising Methods**:
+  - Gaussian Filtering
+  - Median Filtering
+  - Bilateral Filtering
+  - Deep Learning DnCNN
 
-4. **Denoising Methods**
-   - Gaussian Filtering
-   - Median Filtering
-   - Bilateral Filtering
-   - Deep Learning Denoising (DnCNN)
+### Sharpening Techniques
+- Unsharp Mask
+- Laplacian Sharpening
 
-5. **Sharpening Techniques**
-   - Unsharp Mask
-   - Laplacian Sharpening
-
-### Metrics Computation
+## Quality Metrics
 - Signal-to-Noise Ratio (SNR)
 - Edge Strength
 - Region of Interest (ROI) Analysis
 
-## Requirements
+## Prerequisites
 - Python 3.8+
-- Libraries:
-  - OpenCV
-  - NumPy
-  - PyTorch
-  - Streamlit
-  - Rich
+- Dependencies:
+  ```
+  torch
+  torchvision
+  opencv-python
+  numpy
+  streamlit
+  rich
+  reportlab
+  ```
+
+## Installation
+```bash
+git clone https://github.com/your-repo/isp-pipeline.git
+cd isp-pipeline
+pip install -r requirements.txt
+```
 
 ## Usage
+
+### Training Denoising Model
+```bash
+python 1.py
+```
+
 ### Streamlit Web Application
 ```bash
 streamlit run app.py
 ```
 
 ## Project Structure
+- `1.py`: Deep learning model training script
 - `app.py`: Streamlit web interface
 - `pipe.py`: Core ISP pipeline implementation
-- `dncnn_custom.pth`: Pre-trained DnCNN weights
 
-## Workflow
-1. Upload 12-bit RAW image
-2. Select processing techniques
-3. Adjust parameters interactively
-4. View processed images and quality metrics
-5. Download results
+## Model Training Details
+- **Dataset**: Smartphone Image Denoising Dataset (SIDD)
+- **Training Configuration**:
+  - Total Epochs: 3
+  - Batch Size: 16
+  - Learning Rate: 0.001
+  - Optimizer: Adam
+  - Loss Function: Mean Squared Error (MSE)
 
-## Input Specifications
-- Format: 12-bit RAW
-- Bayer Pattern: GRBG
-- Resolution: 1920x1280
-
-## Output
-- Processed RGB images
-- CSV with image quality metrics
-- Visualizations of image processing stages
-
-## Metrics Tracked
-- SNR for dark/mid/bright regions
-- Edge strength
-- Comparative performance of processing methods
+## Computational Requirements
+- Recommended: CUDA-enabled GPU
+- Minimum 16GB RAM
+- High-performance CPU for CPU-based training
 
 ## Limitations
-- Requires pre-trained DnCNN weights file
-- Performance depends on input image quality
-- Computational intensity for deep learning methods
+- Requires pre-trained DnCNN weights
+- Performance varies with input image quality
+- Computationally intensive for deep learning methods
 
-## Future Work
+## Future Enhancements
 - Expand deep learning denoising models
-- Add more advanced sharpening techniques
 - Implement adaptive processing algorithms
+- Integrate more advanced sharpening techniques
 
+## License
+[Specify your license here]
+
+## Contributing
+Contributions are welcome! Please read the contributing guidelines before submitting pull requests.
