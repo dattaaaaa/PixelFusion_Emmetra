@@ -30,8 +30,8 @@ This project is an **Image Signal Processing (ISP) Tuning Tool** that implements
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/dattaaaaa/ISP-Tuning-Tool.git
-   cd ISP-Tuning-Tool
+   git clone https://github.com/dattaaaaa/PixelFusion_Emmetra.git
+   cd PixelFusion_Emmetra
 
 ---
 
