@@ -53,11 +53,6 @@ This project implements an advanced Image Signal Processing (ISP) pipeline with 
 streamlit run app.py
 ```
 
-### Command Line Processing
-```bash
-python pipe.py
-```
-
 ## Project Structure
 - `app.py`: Streamlit web interface
 - `pipe.py`: Core ISP pipeline implementation
