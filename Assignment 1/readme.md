@@ -26,6 +26,14 @@ This project is an **Image Signal Processing (ISP) Tuning Tool** that implements
 
 ---
 
+## To Run
+
+1. Run this command after cloning the repo:
+   ```bash
+   streamlit run ISP.py
+
+---
+
 ## Installation
 
 1. Clone this repository:
