@@ -53,13 +53,6 @@ This project implements an advanced Image Signal Processing (ISP) pipeline focus
   reportlab
   ```
 
-## Installation
-```bash
-git clone https://github.com/your-repo/isp-pipeline.git
-cd isp-pipeline
-pip install -r requirements.txt
-```
-
 ## Usage
 
 ### Training Denoising Model
@@ -100,9 +93,3 @@ streamlit run app.py
 - Expand deep learning denoising models
 - Implement adaptive processing algorithms
 - Integrate more advanced sharpening techniques
-
-## License
-[Specify your license here]
-
-## Contributing
-Contributions are welcome! Please read the contributing guidelines before submitting pull requests.
