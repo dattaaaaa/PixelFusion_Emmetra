@@ -10,24 +10,34 @@ from pathlib import Path
 
 # DnCNN Model Definition
 class DnCNN(nn.Module):
-    def __init__(self, channels=1, num_of_layers=17):
+    def __init__(self, channels=3, num_of_layers=17):
         super(DnCNN, self).__init__()
         kernel_size = 3
         padding = 1
         features = 64
         layers = []
-        layers.append(nn.Conv2d(in_channels=channels, out_channels=features, kernel_size=kernel_size, padding=padding, bias=False))
+        
+        # First convolutional layer
+        layers.append(nn.Conv2d(in_channels=channels, out_channels=features, 
+                                kernel_size=kernel_size, padding=padding, bias=False))
         layers.append(nn.ReLU(inplace=True))
         
+        # Middle convolutional layers with BatchNorm and ReLU
         for _ in range(num_of_layers-2):
-            layers.append(nn.Conv2d(in_channels=features, out_channels=features, kernel_size=kernel_size, padding=padding, bias=False))
+            layers.append(nn.Conv2d(in_channels=features, out_channels=features, 
+                                    kernel_size=kernel_size, padding=padding, bias=False))
             layers.append(nn.BatchNorm2d(features))
             layers.append(nn.ReLU(inplace=True))
         
-        layers.append(nn.Conv2d(in_channels=features, out_channels=channels, kernel_size=kernel_size, padding=padding, bias=False))
+        # Final convolutional layer
+        layers.append(nn.Conv2d(in_channels=features, out_channels=channels, 
+                                kernel_size=kernel_size, padding=padding, bias=False))
+        
+        # Create sequential model
         self.dncnn = nn.Sequential(*layers)
 
     def forward(self, x):
+        # Predict noise and subtract from input
         noise = self.dncnn(x)
         return x - noise
 
@@ -116,7 +126,7 @@ class DenoiseSharpenPipeline:
         """Load pretrained DnCNN model"""
         try:
             # Check if weights file exists
-            if not os.path.exists('dncnn_custom_1iteration.pth'):
+            if not os.path.exists('sidd_denoiser.pth'):
                 self.console.print("[red]DnCNN weights file not found![/red]")
                 return None
 
@@ -128,7 +138,17 @@ class DenoiseSharpenPipeline:
             model = DnCNN(channels=3, num_of_layers=17)
             
             try:
-                model.load_state_dict(torch.load('dncnn_custom_1iteration.pth', map_location=self.device))
+                # Load the state dict
+                state_dict = torch.load('sidd_denoiser.pth', map_location=self.device)
+                
+                # Create a new state dict with the correct prefix
+                new_state_dict = {}
+                for k, v in state_dict.items():
+                    new_key = k.replace('denoiser', 'dncnn')
+                    new_state_dict[new_key] = v
+                
+                # Load the modified state dict
+                model.load_state_dict(new_state_dict)
             except Exception as load_error:
                 self.console.print(f"[red]Error loading weights: {load_error}[/red]")
                 return None
