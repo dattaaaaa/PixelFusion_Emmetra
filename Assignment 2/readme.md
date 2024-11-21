@@ -40,6 +40,20 @@ This project implements an advanced Image Signal Processing (ISP) pipeline focus
 - Edge Strength
 - Region of Interest (ROI) Analysis
 
+1. Clone this repository:
+   ```bash
+   git clone "https://github.com/dattaaaaa/PixelFusion_Emmetra"
+   cd Assignment 2
+   
+2. Install the required Python dependencies:
+    ```bash
+   pip install -r requirements.txt
+  
+3. Run the Streamlit application:
+   ```bash
+    streamlit run app.py
+
+
 ## Prerequisites
 - Python 3.8+
 - Dependencies:
