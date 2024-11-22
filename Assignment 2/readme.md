@@ -43,8 +43,8 @@ This project implements an advanced Image Signal Processing (ISP) pipeline focus
 1. Clone this repository:
    ```bash
    git clone "https://github.com/dattaaaaa/PixelFusion_Emmetra"
-   cd Assignment 2
-   
+   open the Assignment 2 folder in terminal
+
 2. Install the required Python dependencies:
     ```bash
    pip install -r requirements.txt
