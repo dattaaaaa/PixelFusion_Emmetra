@@ -22,7 +22,7 @@ This project implements an HDR (High Dynamic Range) image processing pipeline th
 ```
 HDR-Image-Processing
 ├── hdr_processing.py    # Main Python script 
-├── test_data            # Test images for HDR processing 
+├── test_images            # Test images for HDR processing 
 ├── Report               # Project documentation and report 
 ├── requirements.txt     # Python dependencies
 ├── README.md            # Instructions for running the demo
@@ -40,7 +40,7 @@ HDR-Image-Processing
 1. Clone this repository:
    ```bash
    git clone "https://github.com/dattaaaaa/PixelFusion_Emmetra"
-   cd Assignment3
+   cd PixelFusion_Emmetra
    
 2. Install the required Python dependencies:
     ```bash
